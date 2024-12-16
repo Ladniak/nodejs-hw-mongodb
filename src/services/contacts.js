@@ -17,3 +17,15 @@ export const getContactById = async (contactId) => {
     throw new Error('Error:', error);
   }
 };
+
+export const addContacts = (payload) => Contact.create(payload);
+
+export const updateContact = async (_id, payload) => {
+  const result = await Contact.findOneAndUpdate({ _id }, payload);
+  return result;
+};
+
+export const deleteContact = async (_id) => {
+  const result = await Contact.findOneAndDelete({ _id });
+  return result;
+};

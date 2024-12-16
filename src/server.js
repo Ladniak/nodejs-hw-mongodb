@@ -13,6 +13,7 @@ export const setupServer = () => {
   const app = express();
 
   const corsMiddleware = cors();
+  app.use(express.json());
   const logger = pino({
     transport: {
       target: 'pino-pretty',
