@@ -33,10 +33,12 @@ export const getContactById = async (contactId) => {
   }
 };
 
+export const getContact = (filter) => Contact.findOne(filter);
+
 export const addContacts = (payload) => Contact.create(payload);
 
-export const updateContact = async (_id, payload) => {
-  const result = await Contact.findOneAndUpdate({ _id }, payload);
+export const updateContact = async (filter, payload) => {
+  const result = await Contact.findOneAndUpdate({ filter }, payload);
   return result;
 };
 

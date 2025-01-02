@@ -41,3 +41,10 @@ export const sortByList = ['name'];
 const Contact = model('Contact', contactsSchema);
 
 export default Contact;
+
+// {
+//     "name": "Iron Mike",
+//     "phoneNumber": "8-800-53-53-555",
+//     "email": "ironmike@gmail.com",
+//     "contactType": "work"
+// }
