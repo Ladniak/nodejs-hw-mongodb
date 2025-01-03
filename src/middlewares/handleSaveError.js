@@ -5,5 +5,5 @@ export const handleSaveError = (err, doc, next) => {
   if ((err.status = name === 'MongoServerError' && code === 11000)) {
     return next(createHttpError(409, 'Email in use'));
   }
-  next();
+  next(err);
 };

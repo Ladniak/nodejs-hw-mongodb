@@ -4,7 +4,7 @@ export const registerController = async (req, res) => {
   const users = await authServices.register(req.body);
   const { name, email, createdAt, updatedAt } = users.toObject();
 
-  return res.status(200).json({
+  return res.status(201).json({
     status: 201,
     message: 'Successfully registered user!',
     data: { name, email, createdAt, updatedAt },
