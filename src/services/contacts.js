@@ -25,7 +25,6 @@ export const getContacts = async ({
     throw new Error('Error:', error.message);
   }
 };
-export const getMovieById = (id) => Contact.findById(id);
 
 export const getContact = (filter) => Contact.findOne(filter);
 
@@ -48,7 +47,4 @@ export const updateContact = async (filter, payload, options = {}) => {
   };
 };
 
-export const deleteContact = async ({ _id }) => {
-  const result = await Contact.findOneAndDelete({ _id });
-  return result;
-};
+export const deleteContact = (filter) => Contact.findOneAndDelete(filter);
