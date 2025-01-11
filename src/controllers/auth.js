@@ -1,5 +1,6 @@
 import * as authServices from '../services/auth.js';
 import { sendResetToken } from '../services/auth.js';
+import { resetPassword } from '../services/auth.js';
 
 export const registerController = async (req, res) => {
   const users = await authServices.register(req.body);
@@ -80,4 +81,13 @@ export const sendResetEmailController = async (req, res, next) => {
   } catch (error) {
     next(error);
   }
+};
+
+export const resetPasswordController = async (req, res) => {
+  await resetPassword(req.body);
+  res.json({
+    message: 'Password was successfully reset!',
+    status: 200,
+    data: {},
+  });
 };

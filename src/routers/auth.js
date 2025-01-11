@@ -5,6 +5,8 @@ import { ctrlWrapper } from '../utils/ctrlWrapper.js';
 import { sendResetEmailSchema } from '../validation/auth.js';
 import { sendResetEmailController } from '../controllers/auth.js';
 import * as authController from '../controllers/auth.js';
+import { resetPasswordSchema } from '../validation/auth.js';
+import { resetPasswordController } from '../controllers/auth.js';
 
 const authRouter = Router();
 authRouter.post(
@@ -27,6 +29,12 @@ authRouter.post(
   '/send-reset-email',
   validateBody(sendResetEmailSchema),
   ctrlWrapper(sendResetEmailController),
+);
+
+authRouter.post(
+  '/reset-password',
+  validateBody(resetPasswordSchema),
+  ctrlWrapper(resetPasswordController),
 );
 
 export default authRouter;
