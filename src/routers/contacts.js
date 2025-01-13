@@ -8,6 +8,7 @@ import {
   contactsAddShema,
   contactsUpdateShema,
 } from '../validation/contacts.js';
+import { upload } from '../middlewares/multer.js';
 
 const contactsRouter = express.Router();
 
@@ -22,6 +23,7 @@ contactsRouter.get(
 
 contactsRouter.post(
   '/',
+  upload.single('photo'),
   validateBody(contactsAddShema),
   ctrlWrapper(contactsController.addContactsController),
 );
@@ -29,6 +31,7 @@ contactsRouter.post(
 contactsRouter.patch(
   '/:contactId',
   isValidId,
+  upload.single('photo'),
   validateBody(contactsUpdateShema),
   ctrlWrapper(contactsController.patchContactsController),
 );

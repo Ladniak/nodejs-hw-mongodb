@@ -3,8 +3,9 @@ export const ctrlWrapper = (ctrl) => {
     try {
       await ctrl(req, res, next);
     } catch (error) {
-      res.status(error.status).json({
-        status: error.status,
+      const statusCode = error.status || 500;
+      res.status(statusCode).json({
+        status: statusCode,
         message: error.message,
       });
     }
