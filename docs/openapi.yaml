@@ -1,0 +1,31 @@
+openapi: 3.1.0
+info:
+  version: 1.0.0
+  title: My Contacts App
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  description: This is your book of contacts
+tags:
+  - name: Contacts
+    description: Operation about contacts
+servers:
+  - url: http://localhost:3000
+paths:
+  /contacts:
+    post:
+      $ref: ../swagger/path/contacts/post.yaml
+    get:
+      $ref: ../swagger/path/contacts/get.yaml
+  /contacts/{id}:
+    get:
+      $ref: ../swagger/path/contacts/{id}/get.yaml
+    delete:
+      $ref: ../swagger/path/contacts/{id}/delete.yaml
+    patch:
+      $ref: ../swagger/path/contacts/{id}/patch.yaml
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
